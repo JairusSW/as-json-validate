@@ -69,6 +69,9 @@ export function validateObject(data: string): boolean {
     // Strip preceeding whitespace
     pos = <u32>data.length - 1;
     while (pos < <u32>data.length && isSpace(unsafeCharCodeAt(data, pos))) pos--;
-    return unsafeCharCodeAt(data, firstPos) === 123 && unsafeCharCodeAt(data, pos) === 125;
+    if (unsafeCharCodeAt(data, firstPos) === 123 && unsafeCharCodeAt(data, pos) === 125) {
+        // It has { ... }
+        // Now verify members
+    }
     return false;
 }
